@@ -24,5 +24,5 @@ For each new feature, break down the implementation into these phases:
 2. Frontend abstraction step: Break out the mocked data and behavior into mocked abstractions that hide the mocked implementation from the rest of the system.
 3. Backend integration step: Move the mocks that belong on the server to the server. Use a mocked in-memory repository layer.
 4. DB integration step: Integrate with a real database.
-5. UI step: Style the frontend.
+5. UI step: Make the UI a lovable design that's fun for kids and mobile-first. Only style the existing features. Do not add new data or behavior!
  
