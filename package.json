@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "node --test --loader tsx 'src/**/*.test.ts'"
+    "test": "node --test --import tsx 'src/**/*.test.ts'"
   },
   "dependencies": {
     "react": "^19.0.0",
