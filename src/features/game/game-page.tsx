@@ -62,7 +62,7 @@ export default async function GamePage() {
 
           {/* Start Game Button */}
           <div className="text-center mt-6">
-            <button className="btn btn-lg btn-success rounded-full px-8 text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <button className="btn btn-lg bg-green-600 hover:bg-green-700 border-green-600 hover:border-green-700 rounded-full px-8 text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
               🚀 Start Playing!
             </button>
           </div>
