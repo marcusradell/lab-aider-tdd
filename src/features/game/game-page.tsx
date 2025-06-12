@@ -1,4 +1,4 @@
-import { createGame } from './index';
+import { createGame } from "./index";
 
 export default async function GamePage() {
   const game = await createGame();
@@ -12,7 +12,7 @@ export default async function GamePage() {
             🎭 Guess Who? 🎭
           </h1>
           <div className="badge badge-success badge-lg text-white font-semibold">
-            {game.status === 'waiting' ? '🎮 Ready to Play!' : game.status}
+            {game.status === "waiting" ? "🎮 Ready to Play!" : game.status}
           </div>
         </div>
 
@@ -21,11 +21,14 @@ export default async function GamePage() {
           <h2 className="text-2xl font-bold text-center mb-6 text-purple-800">
             👥 Choose Your Mystery Person
           </h2>
-          
+
           {/* People Grid */}
           <div className="grid grid-cols-2 gap-4">
-            {game.people.map((person: any, index: number) => (
-              <div key={index} className="card bg-gradient-to-br from-blue-100 to-purple-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            {game.people.map((person, index) => (
+              <div
+                key={index}
+                className="card bg-gradient-to-br from-blue-100 to-purple-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              >
                 <div className="card-body p-4 text-center">
                   {/* Avatar placeholder with fun emoji */}
                   <div className="avatar placeholder mb-3">
@@ -33,12 +36,12 @@ export default async function GamePage() {
                       {person.name.charAt(0)}
                     </div>
                   </div>
-                  
+
                   {/* Name */}
                   <h3 className="card-title text-lg font-bold text-purple-800 justify-center">
                     {person.name}
                   </h3>
-                  
+
                   {/* Fun action button */}
                   <div className="card-actions justify-center mt-3">
                     <button className="btn btn-primary btn-sm rounded-full px-6 hover:btn-secondary transition-colors">
@@ -55,7 +58,8 @@ export default async function GamePage() {
             <div className="text-center">
               <h3 className="font-bold text-green-800 mb-2">🎲 How to Play</h3>
               <p className="text-sm text-green-700">
-                Pick a person and ask yes/no questions to guess who your friend chose!
+                Pick a person and ask yes/no questions to guess who your friend
+                chose!
               </p>
             </div>
           </div>
