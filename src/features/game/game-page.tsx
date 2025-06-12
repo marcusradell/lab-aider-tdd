@@ -53,13 +53,13 @@ export default function GamePage() {
               return (
                 <div
                   key={index}
-                  className="card shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden cursor-pointer relative"
+                  className="card shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden cursor-pointer relative aspect-square"
                   onClick={() => toggleElimination(index)}
                 >
                   <img 
                     src={`/${person.image}`} 
                     alt={person.name}
-                    className={`w-full h-full object-cover object-top transition-all duration-300 ${
+                    className={`absolute inset-0 w-full h-full object-cover object-top transition-all duration-300 ${
                       isEliminated ? 'grayscale opacity-50' : ''
                     }`}
                     onError={(e) => {
@@ -70,7 +70,7 @@ export default function GamePage() {
                     }}
                   />
                   <div 
-                    className={`w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center text-gray-600 font-bold text-lg transition-all duration-300 ${
+                    className={`absolute inset-0 w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center text-gray-600 font-bold text-lg transition-all duration-300 ${
                       isEliminated ? 'grayscale opacity-50' : ''
                     }`}
                     style={{ display: 'none' }}
