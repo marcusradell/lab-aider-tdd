@@ -25,6 +25,10 @@ export class GameService {
         {
           name: 'Bob', 
           image: 'bob.png'
+        },
+        {
+          name: 'Cecilia',
+          image: 'cecilia.png'
         }
       ]
     };

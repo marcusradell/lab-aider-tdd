@@ -8,8 +8,9 @@ describe('GameRepository', () => {
     const game = {
       status: 'waiting' as const,
       people: [
-        { name: 'Alice', image: 'alice.jpg' },
-        { name: 'Bob', image: 'bob.jpg' }
+        { name: 'Alice', image: 'alice.png' },
+        { name: 'Bob', image: 'bob.png' },
+        { name: 'Cecilia', image: 'cecilia.png' }
       ]
     };
 
