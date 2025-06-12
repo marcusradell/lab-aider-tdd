@@ -47,7 +47,7 @@ export default function GamePage() {
           </h2>
 
           {/* People Grid */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-4 gap-3">
             {game.people.map((person, index) => {
               const isEliminated = eliminatedPeople.has(index);
               return (
