@@ -3,8 +3,19 @@
 import { createGame } from "./index";
 import { useState, useEffect } from "react";
 
+interface Person {
+  name: string;
+  image: string;
+}
+
+interface Game {
+  id?: number;
+  status: "waiting";
+  people: Person[];
+}
+
 export default function GamePage() {
-  const [game, setGame] = useState<any>(null);
+  const [game, setGame] = useState<Game | null>(null);
   const [eliminatedPeople, setEliminatedPeople] = useState<Set<number>>(new Set());
 
   useEffect(() => {
