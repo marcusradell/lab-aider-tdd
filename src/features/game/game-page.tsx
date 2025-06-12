@@ -1,18 +1,7 @@
+import { createGame } from './index';
+
 export default function GamePage() {
-  // Inline mocked data
-  const game = {
-    status: 'waiting',
-    people: [
-      {
-        name: 'Alice',
-        image: 'alice.jpg'
-      },
-      {
-        name: 'Bob', 
-        image: 'bob.jpg'
-      }
-    ]
-  };
+  const game = createGame();
 
   return (
     <div>
