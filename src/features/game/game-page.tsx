@@ -62,7 +62,21 @@ export default function GamePage() {
                     className={`w-full h-full object-cover object-top transition-all duration-300 ${
                       isEliminated ? 'grayscale opacity-50' : ''
                     }`}
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      const fallback = target.nextElementSibling as HTMLElement;
+                      if (fallback) fallback.style.display = 'flex';
+                    }}
                   />
+                  <div 
+                    className={`w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center text-gray-600 font-bold text-lg transition-all duration-300 ${
+                      isEliminated ? 'grayscale opacity-50' : ''
+                    }`}
+                    style={{ display: 'none' }}
+                  >
+                    {person.name.charAt(0)}
+                  </div>
                   {isEliminated && (
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="w-full h-1 bg-red-600 transform rotate-45 shadow-lg"></div>
