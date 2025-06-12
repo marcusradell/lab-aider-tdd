@@ -1,7 +1,31 @@
-import { createGame } from "./index";
+'use client';
 
-export default async function GamePage() {
-  const game = await createGame();
+import { createGame } from "./index";
+import { useState, useEffect } from "react";
+
+export default function GamePage() {
+  const [game, setGame] = useState<any>(null);
+  const [eliminatedPeople, setEliminatedPeople] = useState<Set<number>>(new Set());
+
+  useEffect(() => {
+    createGame().then(setGame);
+  }, []);
+
+  const toggleElimination = (index: number) => {
+    setEliminatedPeople(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(index)) {
+        newSet.delete(index);
+      } else {
+        newSet.add(index);
+      }
+      return newSet;
+    });
+  };
+
+  if (!game) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-400 via-pink-400 to-orange-400 p-4">
@@ -24,18 +48,29 @@ export default async function GamePage() {
 
           {/* People Grid */}
           <div className="grid grid-cols-2 gap-4">
-            {game.people.map((person, index) => (
-              <div
-                key={index}
-                className="card shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden"
-              >
-                <img 
-                  src={`/${person.image}`} 
-                  alt={person.name}
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
-            ))}
+            {game.people.map((person, index) => {
+              const isEliminated = eliminatedPeople.has(index);
+              return (
+                <div
+                  key={index}
+                  className="card shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden cursor-pointer relative"
+                  onClick={() => toggleElimination(index)}
+                >
+                  <img 
+                    src={`/${person.image}`} 
+                    alt={person.name}
+                    className={`w-full h-full object-cover object-top transition-all duration-300 ${
+                      isEliminated ? 'grayscale opacity-50' : ''
+                    }`}
+                  />
+                  {isEliminated && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-full h-1 bg-red-600 transform rotate-45 shadow-lg"></div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
 
           {/* Game Instructions */}
