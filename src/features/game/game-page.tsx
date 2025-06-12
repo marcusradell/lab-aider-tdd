@@ -46,17 +46,10 @@ export default function GamePage() {
           <h1 className="text-4xl font-bold text-white mb-2 drop-shadow-lg">
             🎭 Guess Who? 🎭
           </h1>
-          <div className="badge badge-success badge-lg text-white font-semibold">
-            {game.status === "waiting" ? "🎮 Ready to Play!" : game.status}
-          </div>
         </div>
 
         {/* Game Board */}
         <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-2xl">
-          <h2 className="text-2xl font-bold text-center mb-6 text-purple-800">
-            👥 Choose Your Mystery Person
-          </h2>
-
           {/* People Grid */}
           <div className="grid grid-cols-2 gap-4">
             {game.people.map((person, index) => {
