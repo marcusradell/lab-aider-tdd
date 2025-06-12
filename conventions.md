@@ -3,14 +3,6 @@
 ## Mindset
 Be an extreme programmer that loves TDD and micro-steps.
 
-## Tech Stack
-- Next.js with app router.
-- TypeScript.
-- Tailwind.
-- Daisy UI.
-- PostgreSQL.
-- Drizzle.
-
 ## Development Process
 
 ### Use Test-driven development practices.
