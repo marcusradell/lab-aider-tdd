@@ -1,15 +1,7 @@
-export function createGame() {
-  return {
-    status: 'waiting' as const,
-    people: [
-      {
-        name: 'Alice',
-        image: 'alice.jpg'
-      },
-      {
-        name: 'Bob', 
-        image: 'bob.jpg'
-      }
-    ]
-  };
+import { GameService } from './game.service';
+
+const gameService = new GameService();
+
+export async function createGame() {
+  return await gameService.createGame();
 }
