@@ -30,10 +30,14 @@ export default async function GamePage() {
                 className="card bg-gradient-to-br from-blue-100 to-purple-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
               >
                 <div className="card-body p-4 text-center">
-                  {/* Avatar placeholder with fun emoji */}
-                  <div className="avatar placeholder mb-3">
-                    <div className="bg-gradient-to-br from-yellow-300 to-orange-400 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold shadow-lg">
-                      {person.name.charAt(0)}
+                  {/* Avatar with actual image */}
+                  <div className="avatar mb-3">
+                    <div className="w-16 h-16 rounded-full shadow-lg overflow-hidden">
+                      <img 
+                        src={`/${person.image}`} 
+                        alt={person.name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   </div>
 

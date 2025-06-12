@@ -20,11 +20,11 @@ export class GameService {
       people: [
         {
           name: 'Alice',
-          image: 'alice.jpg'
+          image: 'alice.png'
         },
         {
           name: 'Bob', 
-          image: 'bob.jpg'
+          image: 'bob.png'
         }
       ]
     };
