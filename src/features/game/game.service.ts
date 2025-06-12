@@ -1,32 +1,22 @@
+import { GameRepository } from './game.repository';
+
 interface Person {
   name: string;
   image: string;
 }
 
 interface Game {
+  id?: number;
   status: 'waiting';
   people: Person[];
 }
 
-class InMemoryGameRepository {
-  private games: Game[] = [];
-
-  async save(game: Game): Promise<Game> {
-    this.games.push(game);
-    return game;
-  }
-
-  async findAll(): Promise<Game[]> {
-    return this.games;
-  }
-}
-
 export class GameService {
-  private repository = new InMemoryGameRepository();
+  private repository = new GameRepository();
 
   async createGame(): Promise<Game> {
-    const game: Game = {
-      status: 'waiting',
+    const game = {
+      status: 'waiting' as const,
       people: [
         {
           name: 'Alice',
