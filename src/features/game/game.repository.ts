@@ -2,7 +2,6 @@ import { drizzle } from 'drizzle-orm/node-postgres';
 import { Pool } from 'pg';
 import { games, type Game, type NewGame } from './game.schema';
 
-// Mock database connection for now
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL || 'postgresql://localhost:5432/test'
 });
@@ -22,16 +21,25 @@ interface GameData {
 
 export class GameRepository {
   async save(gameData: Omit<GameData, 'id'>): Promise<GameData> {
-    // For now, mock the database save
-    const mockId = Math.floor(Math.random() * 1000);
+    const [savedGame] = await db.insert(games).values({
+      status: gameData.status,
+      people: gameData.people
+    }).returning();
+    
     return {
-      id: mockId,
-      ...gameData
+      id: savedGame.id,
+      status: savedGame.status as 'waiting',
+      people: savedGame.people as Person[]
     };
   }
 
   async findAll(): Promise<GameData[]> {
-    // For now, return empty array
-    return [];
+    const allGames = await db.select().from(games);
+    
+    return allGames.map(game => ({
+      id: game.id,
+      status: game.status as 'waiting',
+      people: game.people as Person[]
+    }));
   }
 }
