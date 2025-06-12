@@ -1,12 +1,5 @@
-import { drizzle } from 'drizzle-orm/node-postgres';
-import { Pool } from 'pg';
+import { db } from '../../lib/db';
 import { games, type Game, type NewGame } from './game.schema';
-
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL || 'postgresql://localhost:5432/test'
-});
-
-const db = drizzle(pool);
 
 interface Person {
   name: string;
