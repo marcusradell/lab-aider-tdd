@@ -9,7 +9,8 @@
     "lint": "next lint",
     "test": "node --test --import tsx 'src/**/*.test.ts'",
     "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate"
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
     "daisyui": "^4",
