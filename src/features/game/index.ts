@@ -1,7 +1,5 @@
-import { GameService } from './game.service';
-
-const gameService = new GameService();
+import { createGameAction } from './game.actions';
 
 export async function createGame() {
-  return await gameService.createGame();
+  return await createGameAction();
 }

@@ -1,18 +1,7 @@
-'use client';
-
-import { useState, useEffect } from 'react';
 import { createGame } from './index';
 
-export default function GamePage() {
-  const [game, setGame] = useState<any>(null);
-
-  useEffect(() => {
-    createGame().then(setGame);
-  }, []);
-
-  if (!game) {
-    return <div>Loading...</div>;
-  }
+export default async function GamePage() {
+  const game = await createGame();
 
   return (
     <div>
