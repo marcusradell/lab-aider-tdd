@@ -27,32 +27,13 @@ export default async function GamePage() {
             {game.people.map((person, index) => (
               <div
                 key={index}
-                className="card bg-gradient-to-br from-blue-100 to-purple-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                className="card shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden"
               >
-                <div className="card-body p-4 text-center">
-                  {/* Avatar with actual image */}
-                  <div className="avatar mb-3">
-                    <div className="w-16 h-16 rounded-full shadow-lg overflow-hidden">
-                      <img 
-                        src={`/${person.image}`} 
-                        alt={person.name}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Name */}
-                  <h3 className="card-title text-lg font-bold text-purple-800 justify-center">
-                    {person.name}
-                  </h3>
-
-                  {/* Fun action button */}
-                  <div className="card-actions justify-center mt-3">
-                    <button className="btn btn-primary btn-sm rounded-full px-6 hover:btn-secondary transition-colors">
-                      🎯 Pick Me!
-                    </button>
-                  </div>
-                </div>
+                <img 
+                  src={`/${person.image}`} 
+                  alt={person.name}
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
             ))}
           </div>
