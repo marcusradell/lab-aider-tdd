@@ -9,15 +9,14 @@ interface Game {
   id?: number;
   status: "waiting";
   people: Person[];
+  correctPersonIndex: number;
 }
 
 export class GameService {
   private repository = new GameRepository();
 
   async createGame(): Promise<Game> {
-    const game = {
-      status: "waiting" as const,
-      people: [
+    const people = [
         {
           name: "Alice",
           image: "alice.png",
@@ -122,7 +121,12 @@ export class GameService {
           name: "Zoe",
           image: "zoe.png",
         },
-      ],
+      ];
+
+    const game = {
+      status: "waiting" as const,
+      people,
+      correctPersonIndex: Math.floor(Math.random() * people.length),
     };
 
     return await this.repository.save(game);
