@@ -1,0 +1,1 @@
+ALTER TABLE "games" ADD COLUMN "correct_person_index" integer NOT NULL;
