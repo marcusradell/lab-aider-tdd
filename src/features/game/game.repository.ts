@@ -10,6 +10,7 @@ interface GameData {
   id?: number;
   status: "waiting";
   people: Person[];
+  correctPersonIndex: number;
 }
 
 export class GameRepository {
@@ -19,6 +20,7 @@ export class GameRepository {
       .values({
         status: gameData.status,
         people: gameData.people,
+        correctPersonIndex: gameData.correctPersonIndex,
       })
       .returning();
 
@@ -26,6 +28,7 @@ export class GameRepository {
       id: savedGame.id,
       status: savedGame.status as "waiting",
       people: savedGame.people as Person[],
+      correctPersonIndex: savedGame.correctPersonIndex,
     };
   }
 
@@ -36,6 +39,7 @@ export class GameRepository {
       id: game.id,
       status: game.status as "waiting",
       people: game.people as Person[],
+      correctPersonIndex: game.correctPersonIndex,
     }));
   }
 }
